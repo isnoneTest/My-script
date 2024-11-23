@@ -1,0 +1,119 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local MemeKeySystemTestAllexecutor = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local TextBox = Instance.new("TextBox")
+local UICorner_2 = Instance.new("UICorner")
+local Checkkey = Instance.new("ImageButton")
+local UICorner_3 = Instance.new("UICorner")
+local Getkey = Instance.new("ImageButton")
+local UICorner_4 = Instance.new("UICorner")
+local TextLabel = Instance.new("TextLabel")
+
+--Properties:
+
+MemeKeySystemTestAllexecutor.Name = "Meme Key System Test All executor"
+MemeKeySystemTestAllexecutor.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+MemeKeySystemTestAllexecutor.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Frame.Parent = MemeKeySystemTestAllexecutor
+Frame.BackgroundColor3 = Color3.fromRGB(128, 128, 128)
+Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BorderSizePixel = 0
+Frame.Position = UDim2.new(0.402597398, 0, 0.333333313, 0)
+Frame.Size = UDim2.new(0, 300, 0, 200)
+Frame.SizeConstraint = Enum.SizeConstraint.RelativeXX
+
+UICorner.Parent = Frame
+
+TextBox.Parent = Frame
+TextBox.BackgroundColor3 = Color3.fromRGB(169, 169, 169)
+TextBox.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextBox.BorderSizePixel = 0
+TextBox.Position = UDim2.new(0.0334645696, 0, 0.350583345, 0)
+TextBox.Size = UDim2.new(0, 280, 0, 50)
+TextBox.ClearTextOnFocus = false
+TextBox.Font = Enum.Font.Arcade
+TextBox.MultiLine = true
+TextBox.PlaceholderColor3 = Color3.fromRGB(128, 128, 128)
+TextBox.PlaceholderText = "paste the key here"
+TextBox.Text = "Key"
+TextBox.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextBox.TextSize = 20.000
+
+
+
+UICorner_2.Parent = TextBox
+
+Checkkey.Name = "Check key"
+Checkkey.Parent = Frame
+Checkkey.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+Checkkey.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Checkkey.BorderSizePixel = 0
+Checkkey.Position = UDim2.new(0.635826766, 0, 0.701166689, 0)
+Checkkey.Size = UDim2.new(0, 100, 0, 50)
+Checkkey.Image = "rbxassetid://93247372642750"
+
+UICorner_3.Parent = Checkkey
+
+Getkey.Name = "Getkey"
+Getkey.Parent = Frame
+Getkey.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+Getkey.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Getkey.BorderSizePixel = 0
+Getkey.Position = UDim2.new(0.0334645696, 0, 0.701166689, 0)
+Getkey.Size = UDim2.new(0, 100, 0, 50)
+Getkey.Image = "rbxassetid://77957391080567"
+
+UICorner_4.Parent = Getkey
+
+TextLabel.Parent = Frame
+TextLabel.BackgroundColor3 = Color3.fromRGB(128, 128, 128)
+TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.BorderSizePixel = 0
+TextLabel.Size = UDim2.new(0, 300, 0, 70)
+TextLabel.Font = Enum.Font.Arcade
+TextLabel.Text = "Meme key"
+TextLabel.TextColor3 = Color3.fromRGB(169, 169, 169)
+TextLabel.TextSize = 40.000
+
+
+
+-- Scripts:
+
+-- Make Frame Draggable
+local function makeFrameDraggable()
+    local frame = Frame
+    frame.Draggable = true
+    frame.Active = true
+    frame.Selectable = true
+end
+makeFrameDraggable()
+
+-- Key Check Logic
+local correctKey = "put key here" and "Per Key"
+Checkkey.MouseButton1Click:Connect(function()
+    if TextBox.Text == correctKey then
+        print("Script")
+
+        --My Script (Pizzeria Tycoon 2)
+        loadstring(game:HttpGet("https://gist.githubusercontent.com/ServerSad/2b30ad46be33d8f3ce77b2f6be30eb57/raw/ab08566de086ee4849aa6750c1d005ac05829e3d/Inf%2520money%2520gui"))()
+
+        MemeKeySystemTestAllexecutor:Destroy() -- Remove the GUI
+    else
+        warn("Wrong Key")
+        TextBox.Text = "" -- Clear the text box
+        TextBox.PlaceholderText = "Wrong key! Try again"
+        wait(1)
+        TextBox.PlaceholderText = "paste the key here"
+    end
+end)
+
+-- Set Clipboard Logic
+Getkey.MouseButton1Click:Connect(function()
+    setclipboard("key link here") -- Replace with your actual key link
+end)
